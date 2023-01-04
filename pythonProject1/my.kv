@@ -1,0 +1,841 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+    SellerDashWindow:
+    SellerListProductWindow:
+    SellerEditDeleteProductWindow:
+    SellingDataWindow:
+    CustomerDashWindow:
+    CustomerHomeWindow:
+    Jordan4Window:
+    Jordan1Window:
+    NikeDunkLowWindow:
+    AirForce1Window:
+    NewBalance550Window:
+    YeezyWindow:
+    CartWindow:
+    Jordan4MidnightNavyWindow:
+    Jordan4BlackCanvasWindow:
+    Jordan4MilitaryBlackWindow:
+
+<MainWindow>
+
+    name: "main"
+
+    GridLayout:
+        cols:1
+        Button:
+            text: "Customer Login"
+            on_release:
+                app.root.current = "second"
+
+        GridLayout:
+            cols: 1
+            Button:
+                text: "Customer Sign Up"
+                on_release:
+                    app.root.current = "third"
+
+        GridLayout
+            cols: 1
+            Button:
+                text: "Seller Sign in"
+                on_release:
+                    app.root.current = "fourth"
+
+<SecondWindow>:
+    name: "second"
+
+    email: email
+    password: password
+
+    FloatLayout:
+
+        Label:
+            text:"Email: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.9}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.9}
+            size_hint: 0.4, 0.15
+
+        Label:
+            text:"Password: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.7}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: password
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.45, "top":0.7}
+            size_hint: 0.4, 0.15
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.2
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Login"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.fourthBtn()
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Don't have an Account? Create One"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.thirdBtn()
+
+<ThirdWindow>:
+    name: "third"
+
+    firstname: firstname
+    email: email
+    password: passw
+    lastname: lastname
+    firstlineaddy: firstlineaddy
+    seclineaddy: seclineaddy
+    postcode: postcode
+    country: country
+    city: city
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Create an Account"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.2,0.05
+                pos_hint: {"x":0.02, "top":0.8}
+                text: "Email: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.15, "top":0.8}
+                size_hint: 0.3, 0.05
+                id: email
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.01, "top":0.9-0.15}
+                text: "Password: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.15, "top":0.8-0.08}
+                size_hint: 0.3, 0.05
+                id: passw
+                multiline: False
+                password: True
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.01, "top":0.82-0.15}
+                text: "First Name: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.15, "top":0.79-0.15}
+                size_hint: 0.3, 0.05
+                id: firstname
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.01, "top":0.74-0.15}
+                text: "Last Name: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.15, "top":0.7-0.14}
+                size_hint: 0.3, 0.05
+                id: lastname
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0, "top":0.65-0.14}
+                text: "First Line Address: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.15, "top":0.63-0.15}
+                size_hint: 0.3, 0.05
+                id: firstlineaddy
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.43, "top":0.825}
+                text: "Second Line Address: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.6, "top":0.8}
+                size_hint: 0.3, 0.05
+                id: seclineaddy
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.46, "top":0.9-0.15}
+                text: "Country: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.6, "top":0.8-0.08}
+                size_hint: 0.3, 0.05
+                id: country
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.47, "top":0.82-0.15}
+                text: "City: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.6, "top":0.79-0.15}
+                size_hint: 0.3, 0.05
+                id: city
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            Label:
+                size_hint: 0.2,0.1
+                pos_hint: {"x":0.47, "top":0.74-0.15}
+                text: "Postcode: "
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+            TextInput:
+                pos_hint: {"x":0.6, "top":0.7-0.14}
+                size_hint: 0.3, 0.05
+                id: postcode
+                multiline: False
+                font_size: (root.width**1 + root.height**1) / 12**2
+
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.25}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Already have an Account? Log In"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.second()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+
+<FourthWindow>
+    name: "fourth"
+
+    email: email
+    password: password
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Seller Login"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Email: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.12
+                id: email
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.75-0.14}
+                text: "Password: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.6}
+                size_hint: 0.4, 0.12
+                id: password
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Submit"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+<SellerDashWindow>
+    name: "dashboard"
+
+    GridLayout:
+        cols:1
+        Button:
+            text: "List Product"
+            on_release:
+                app.root.current = "listing"
+
+        GridLayout:
+            cols: 1
+            Button:
+                text: "Edit and Delete Product"
+                on_release:
+                    app.root.current = "edit"
+
+        GridLayout
+            cols: 1
+            Button:
+                text: "Selling Data"
+                on_release:
+                    app.root.current = "selldata"
+
+<SellerListProductWindow>
+    name: "listing"
+
+<SellerEditDeleteProductWindow>
+    name: "edit"
+
+<SellingDataWindow>
+    name: "selldata"
+
+<CustomerDashWindow>
+    name: "customerdash"
+
+    Button:
+        background_normal: 'logo.jpg'
+        background_down: 'logo.jpg'
+        size_hint: 0.25,0.2
+        pos_hint: {"x":0.76, "top":1}
+        source: 'logo.jpg'
+        size: self.texture_size
+        on_release:
+            app.root.current = "customerhome"
+
+    FloatLayout:
+        cols:1
+        Label:
+            size_hint: 0.2,0.2
+            pos_hint: {"x":0.45, "top":1}
+            text: "Dashboard"
+            font_size:35
+
+        FloatLayout:
+            cols:1
+
+            Button:
+                size_hint: 0.17,0.1
+                pos_hint: {"x":0.78, "top":0.82}
+                background_color: 0, 0, 0, 0
+                text: "| Nike Dunk Low"
+                font_size:19
+                on_release:
+                    app.root.current = "nikedunklow"
+            FloatLayout:
+                cols:1
+                Button:
+                    size_hint: 0.15,0.1
+                    pos_hint: {"x":0.63, "top":0.82}
+                    background_color: 0, 0, 0, 0
+                    text: "| Air Jordan 1 "
+                    font_size:19
+                    on_release:
+                        app.root.current = "jordan1"
+                FloatLayout:
+                    cols:1
+                    Button:
+                        size_hint: 0.15,0.1
+                        pos_hint: {"x":0.48, "top":0.82}
+                        background_color: 0, 0, 0, 0
+                        text: "| Air Jordan 4"
+                        font_size:19
+                        on_release:
+                            app.root.current = "jordan4"
+
+                    FloatLayout:
+                        cols:1
+                        Button:
+                            size_hint: 0.15,0.1
+                            pos_hint: {"x":0.33, "top":0.82}
+                            background_color: 0, 0, 0, 0
+                            text: "| Air Force 1"
+                            font_size:19
+                            on_release:
+                                app.root.current = "airforce1"
+
+                        FloatLayout:
+                            cols:1
+                            Button:
+                                size_hint: 0.2,0.1
+                                pos_hint: {"x":0.13, "top":0.82}
+                                background_color: 0, 0, 0, 0
+                                text: "| New Balance 550"
+                                font_size:19
+                                on_release:
+                                    app.root.current = "newbalance550"
+
+                            FloatLayout:
+                                cols:1
+                                Button:
+                                    size_hint: 0.08,0.1
+                                    pos_hint: {"x":0.05, "top":0.82}
+                                    background_color: 0, 0, 0, 0
+                                    text: "| Yeezy"
+                                    font_size:19
+                                    on_release:
+                                        app.root.current = "yeezy"
+
+
+                        FloatLayout:
+                            cols:1
+                            Button:
+                                size_hint: 0.16,0.1
+                                pos_hint: {"x":0.000001, "top":1}
+                                text: "Return to Login"
+                                font_size:19
+                                on_release:
+                                    app.root.current = "second"
+
+                            Button:
+                                background_normal: 'cart.png'
+                                background_down: 'cart.png'
+                                size_hint: 0.12,0.1
+                                pos_hint: {"x":0.2, "top":0.95}
+                                source: 'cart.png'
+                                size: self.texture_size
+                                on_release:
+                                    app.root.current = "cart"
+
+    Label:
+        size_hint: 0.5,0.12
+        pos_hint: {"x":0, "top":0.6}
+        text: "Please input your size"
+        font_size: (root.width**2 + root.height**2) / 14**4
+
+    TextInput:
+        pos_hint: {"x":0.5, "top":0.6}
+        size_hint: 0.4, 0.12
+        id: shoesize
+        multiline: False
+        font_size: (root.width**2 + root.height**2) / 14**4
+
+    Button:
+        pos_hint:{"x":0.72,"y":0.48}
+        size_hint: 0.2, 0.12
+        text: "Submit"
+        font_size: (root.width**2 + root.height**2) / 14**4
+        on_release:
+            root.manager.transition.direction = "left"
+            root.submit()
+
+
+
+<CustomerHomeWindow>
+    name:"customerhome"
+
+<Jordan4Window>
+    name:"jordan4"
+    Button:
+        background_normal: 'logo.jpg'
+        background_down: 'logo.jpg'
+        size_hint: 0.25,0.2
+        pos_hint: {"x":0.76, "top":1}
+        source: 'logo.jpg'
+        size: self.texture_size
+        on_release:
+            app.root.current = "customerhome"
+
+    FloatLayout:
+        cols:1
+        Label:
+            size_hint: 0.2,0.2
+            pos_hint: {"x":0.45, "top":1}
+            text: "Jordan 4"
+            font_size:35
+
+        FloatLayout:
+            cols:1
+
+            Button:
+                size_hint: 0.17,0.1
+                pos_hint: {"x":0.78, "top":0.82}
+                background_color: 0, 0, 0, 0
+                text: "| Nike Dunk Low"
+                font_size:19
+                on_release:
+                    app.root.current = "nikedunklow"
+            FloatLayout:
+                cols:1
+                Button:
+                    size_hint: 0.15,0.1
+                    pos_hint: {"x":0.63, "top":0.82}
+                    background_color: 0, 0, 0, 0
+                    text: "| Air Jordan 1 "
+                    font_size:19
+                    on_release:
+                        app.root.current = "jordan1"
+                FloatLayout:
+                    cols:1
+                    Button:
+                        size_hint: 0.15,0.1
+                        pos_hint: {"x":0.48, "top":0.82}
+                        background_color: 0, 0, 0, 0
+                        text: "| Air Jordan 4"
+                        font_size:19
+                        on_release:
+                            app.root.current = "jordan4"
+
+                    FloatLayout:
+                        cols:1
+                        Button:
+                            size_hint: 0.15,0.1
+                            pos_hint: {"x":0.33, "top":0.82}
+                            background_color: 0, 0, 0, 0
+                            text: "| Air Force 1"
+                            font_size:19
+                            on_release:
+                                app.root.current = "airforce1"
+
+                        FloatLayout:
+                            cols:1
+                            Button:
+                                size_hint: 0.2,0.1
+                                pos_hint: {"x":0.13, "top":0.82}
+                                background_color: 0, 0, 0, 0
+                                text: "| New Balance 550"
+                                font_size:19
+                                on_release:
+                                    app.root.current = "newbalance550"
+
+                            FloatLayout:
+                                cols:1
+                                Button:
+                                    size_hint: 0.08,0.1
+                                    pos_hint: {"x":0.05, "top":0.82}
+                                    background_color: 0, 0, 0, 0
+                                    text: "| Yeezy"
+                                    font_size:19
+                                    on_release:
+                                        app.root.current = "yeezy"
+
+
+                        FloatLayout:
+                            cols:1
+                            Button:
+                                size_hint: 0.16,0.1
+                                pos_hint: {"x":0.000001, "top":1}
+                                text: "Return to Login"
+                                font_size:19
+                                on_release:
+                                    app.root.current = "second"
+
+                            Button:
+                                background_normal: 'cart.png'
+                                background_down: 'cart.png'
+                                size_hint: 0.12,0.1
+                                pos_hint: {"x":0.2, "top":0.95}
+                                source: 'cart.png'
+                                size: self.texture_size
+                                on_release:
+                                    app.root.current = "cart"
+
+                        FloatLayout:
+                            cols:1
+                            Label:
+                                text:"Jordan 4 Midnight Navy"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.1, "top":0.54}
+                                font_size: 12
+
+                            Label:
+                                text: "£300"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.1, "top":0.5}
+                                font_size: 12
+
+                            Button:
+                                background_normal: 'jordan4midnightnavy.jpg'
+                                background_down: 'jordan4midnightnavy.jpg'
+                                size_hint: 0.2,0.2
+                                pos_hint: {"x":0.1, "top":0.7}
+                                source: 'jordan4midnightnavy.jpg'
+                                size: self.texture_size
+                                on_release:
+                                    app.root.current = "jordan4midnightnavy"
+                        FloatLayout:
+                            cols:1
+                            Label:
+                                text:"Jordan 4 Military Black"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.4, "top":0.54}
+                                font_size: 12
+
+                            Label:
+                                text: "£320"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.4, "top":0.5}
+                                font_size: 12
+
+                            Button:
+                                background_normal: 'jordan4militaryblack.jpg'
+                                background_down: 'jordan4militaryblack.jpg'
+                                size_hint: 0.2,0.2
+                                pos_hint: {"x":0.4, "top":0.7}
+                                source: 'jordan4militaryblack.jpg'
+                                size: self.texture_size
+                                on_release:
+                                    app.root.current = "jordan4militaryblack"
+
+                        FloatLayout:
+                            cols:1
+                            Label:
+                                text:"Jordan 4 Black Canvas"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.7, "top":0.54}
+                                font_size: 12
+
+                            Label:
+                                text: "£300"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.7, "top":0.5}
+                                font_size: 12
+
+                            Button:
+                                background_normal: 'jordan4blackcanvas.jpg'
+                                background_down: 'jordan4blackcanvas.jpg'
+                                size_hint: 0.2,0.2
+                                pos_hint: {"x":0.7, "top":0.7}
+                                source: 'jordan4blackcanvas.jpg'
+                                size: self.texture_size
+                                on_release:
+                                    app.root.current = "jordan4blackcanvas"
+
+
+<Jordan4MilitaryBlackWindow>
+    name:"jordan4militaryblack"
+    Button:
+        background_normal: 'logo.jpg'
+        background_down: 'logo.jpg'
+        size_hint: 0.25,0.2
+        pos_hint: {"x":0.76, "top":1}
+        source: 'logo.jpg'
+        size: self.texture_size
+        on_release:
+            app.root.current = "customerhome"
+
+    FloatLayout:
+        cols:1
+        Label:
+            size_hint: 0.2,0.2
+            pos_hint: {"x":0.45, "top":1}
+            text: "Jordan 4"
+            font_size:35
+
+        FloatLayout:
+            cols:1
+
+            Button:
+                size_hint: 0.17,0.1
+                pos_hint: {"x":0.78, "top":0.82}
+                background_color: 0, 0, 0, 0
+                text: "| Nike Dunk Low"
+                font_size:19
+                on_release:
+                    app.root.current = "nikedunklow"
+            FloatLayout:
+                cols:1
+                Button:
+                    size_hint: 0.15,0.1
+                    pos_hint: {"x":0.63, "top":0.82}
+                    background_color: 0, 0, 0, 0
+                    text: "| Air Jordan 1 "
+                    font_size:19
+                    on_release:
+                        app.root.current = "jordan1"
+                FloatLayout:
+                    cols:1
+                    Button:
+                        size_hint: 0.15,0.1
+                        pos_hint: {"x":0.48, "top":0.82}
+                        background_color: 0, 0, 0, 0
+                        text: "| Air Jordan 4"
+                        font_size:19
+                        on_release:
+                            app.root.current = "jordan4"
+
+                    FloatLayout:
+                        cols:1
+                        Button:
+                            size_hint: 0.15,0.1
+                            pos_hint: {"x":0.33, "top":0.82}
+                            background_color: 0, 0, 0, 0
+                            text: "| Air Force 1"
+                            font_size:19
+                            on_release:
+                                app.root.current = "airforce1"
+
+                        FloatLayout:
+                            cols:1
+                            Button:
+                                size_hint: 0.2,0.1
+                                pos_hint: {"x":0.13, "top":0.82}
+                                background_color: 0, 0, 0, 0
+                                text: "| New Balance 550"
+                                font_size:19
+                                on_release:
+                                    app.root.current = "newbalance550"
+
+                            FloatLayout:
+                                cols:1
+                                Button:
+                                    size_hint: 0.08,0.1
+                                    pos_hint: {"x":0.05, "top":0.82}
+                                    background_color: 0, 0, 0, 0
+                                    text: "| Yeezy"
+                                    font_size:19
+                                    on_release:
+                                        app.root.current = "yeezy"
+
+
+                        FloatLayout:
+                            cols:1
+                            Button:
+                                size_hint: 0.16,0.1
+                                pos_hint: {"x":0.000001, "top":1}
+                                text: "Return to Login"
+                                font_size:19
+                                on_release:
+                                    app.root.current = "second"
+
+                            Button:
+                                background_normal: 'cart.png'
+                                background_down: 'cart.png'
+                                size_hint: 0.12,0.1
+                                pos_hint: {"x":0.2, "top":0.95}
+                                source: 'cart.png'
+                                size: self.texture_size
+                                on_release:
+                                    app.root.current = "cart"
+
+
+                        FloatLayout:
+                            cols:1
+                            Label:
+                                text:"Jordan 4 Military Black"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.55, "top":0.6}
+                                font_size: 20
+
+                            Label:
+                                text: "£320"
+                                size_hint: 0.2, 0.2
+                                pos_hint: {"x":0.55, "top":0.55}
+                                font_size: 20
+
+                            Button:
+                                background_normal: 'jordan4militaryblack.jpg'
+                                background_down: 'jordan4militaryblack.jpg'
+                                size_hint: 0.4,0.4
+                                pos_hint: {"x":0.1, "top":0.7}
+                                source: 'jordan4militaryblack.jpg'
+                                size: self.texture_size
+
+                            Button:
+                                pos_hint:{"x":0.55,"y":0.45}
+                                size_hint: 0.2, 0.12
+                                text: "9"
+                                value: 300
+                                font_size: (root.width**2 + root.height**2) / 14**4
+                                on_release:
+                                    root.checkout()
+
+
+
+
+
+
+<Jordan4MidnightNavyWindow>
+    name:"jordan4midnightnavy"
+
+<Jordan4BlackCanvasWindow>
+    name:"jordan4blackcanvas"
+
+<Jordan1Window>
+    name:"jordan1"
+
+<NikeDunkLowWindow>
+    name:"nikedunklow"
+
+<AirForce1Window>
+    name:"airforce1"
+
+<NewBalance550Window>
+    name:"newbalance550"
+
+<YeezyWindow>
+    name:"yeezy"
+
+<CartWindow>
+    name:"cart"
+
+    Label:
+        text: "Total:"
+        size_hint: 0.2, 0.2
+        pos_hint: {"x":0.7, "top":0.2}
+        font_size: 20
+
+    Label:
+        text: root.total
+        size_hint: 0.2, 0.2
+        pos_hint: {"x":0.75, "top":0.2}
+        font_size: 20
